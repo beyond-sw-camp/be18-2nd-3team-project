@@ -1,4 +1,4 @@
-package com.yuguanzhang.lumi.user.entity;
+package com.yuguanzhang.lumi.chat.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -10,30 +10,32 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
-@Table(name = "users")
+@Table(name = "Rooms")
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class User {
+public class Room {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
-    private Long userId;
+    @Column(name="room_id")
+    private Long roomId;
 
-    @Column(name = "name", nullable = false)
+    @Column(name="name")
     private String name;
 
-    @Column(name = "provider")
-    private String provider;
+    @Column(name="created_at")
+    @CreatedDate
+    private LocalDateTime createdAt;
 
-    @Column(nullable = false, unique = true)
-    private String email;
-
-    @Column(name = "password")
-    private String password;
-
+    @Column(name="updated_at")
+    @LastModifiedDate
+    private LocalDateTime updatedAt;
 }
