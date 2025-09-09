@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @EnableJpaAuditing
 @SpringBootApplication
+@EnableJpaAuditing //자동 createAt 설정하려고 추가했음
 public class LumiApplication {
 
     public static void main(String[] args) {
